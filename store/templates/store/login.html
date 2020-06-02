@@ -1,0 +1,28 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Login{% endblock %}
+{% block header%}Log<font id="page2">in</font>{% endblock %}
+
+{% block custom_style %}
+.content {
+	height: 100%;
+}
+{% endblock %}
+
+
+{% block content %}
+<div id="content-block">
+	{% if form.error %}
+		<font id="error">{{ form.error }}</font>
+	{% endif %}
+
+	<form method="post" id='register'>
+		{% csrf_token %}
+		
+		{{ form.nickname.label|linebreaks }} {{ form.nickname }}<br><br>
+		{{ form.password.label|linebreaks }} {{ form.password }}<br><br>
+
+		<input type="submit" name="submit" value="Login">
+	</form>
+</div>
+{% endblock %}

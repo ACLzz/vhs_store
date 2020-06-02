@@ -1,0 +1,18 @@
+{% extends 'store/base.html' %}
+
+{% block title %}{{ user.nickname}}{% endblock %}
+{% block header %}<font id="page2">{{ user.nickname }}</font><br> Profile page{% endblock %}
+
+{% block custom_style %}
+.content {
+	height: 100%;
+}
+{% endblock %}
+
+{% block content %}
+<div id="content-block">
+	{% load static %}
+	{{ user.nickname }}<br>
+	<img src="{% static '/avatars/' %}{{user.avatar}}">
+</div>
+{% endblock %}

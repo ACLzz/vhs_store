@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+	<title>{% block title %}{% endblock %} - cassettes</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'store/base_style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'store/reset.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Kelly+Slab|Noto+Sans+HK|Montserrat|Saira+Semi+Condensed&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/evil-icons@1.9.0/assets/evil-icons.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/evil-icons@1.9.0/assets/evil-icons.min.js"></script>
+	<script src="https://kit.fontawesome.com/38e9aea583.js"></script> 
+	<style type="text/css">
+		{% block custom_style %}
+		{% endblock %}
+	</style>
+</head>
+<body>
+	{% if request.session.uid != 0 %}
+		<div class="user-data">
+			<a href="{% url 'profile' pk=request.session.uid %}">{{ request.session.nickname }}</a>
+			<div class="fas fa-shopping-cart"></div>{{ request.session.cart }}
+		</div>
+	{% endif %}
+	<header>
+		<div class="container">
+			<a href="{% url 'index' %}">
+				<img src="{% static 'store/cassette_logo_1.png' %}" id="pic_1" class="logo">
+				<img src="{% static 'store/cassette_logo_2.png' %}" id="pic_2" class="logo">
+				<img src="{% static 'store/cassette_logo_3.png' %}" id="pic_3" class="logo">
+				<img src="{% static 'store/cassette_logo_4.png' %}" id="pic_4" class="logo">
+			</a>
+
+			<div id="page">{% block header %}{% endblock %}</div>
+
+		</div>
+	</header>
+	<div class="line">
+			<a href="{% url 'cassettes_redirect' %}" id="button"><div>Cassettes</div></a>
+		{% if request.session.uid == 0 %}
+			<a href="{% url 'registration' %}" id="button"><div>Registration</div></a>
+			<a href="{% url 'login' %}" id="button"><div>Login</div></a>
+		{% else %}
+			<a href="{% url 'logout' %}" id="button"><div>Logout</div></a>
+		{% endif %}
+	</div>
+	<div class="content">
+			{% block content %}
+			{% endblock %}
+	</div>
+</body>
+</html>

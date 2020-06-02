@@ -1,0 +1,28 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Register{% endblock %}
+{% block header%}Reg<font id="page2">ister</font>{% endblock %}
+
+{% block custom_style %}
+.content {
+	height: 100%;
+}
+{% endblock %}
+
+{% block content %}
+<div id="content-block">
+	{% if form.error %}
+		<font id="error">{{ form.error }}</font>
+	{% endif %}
+	<form method="post" enctype="multipart/form-data" id='register'>
+		{% csrf_token %}
+		{{ form.avatar.label|linebreaks }} {{ form.avatar }}<br><br>
+		{{ form.nickname.label|linebreaks }} {{ form.nickname }}<br><br>
+		{{ form.first_name.label|linebreaks }} {{ form.first_name }}<br><br>
+		{{ form.password.label|linebreaks }} {{ form.password }}<br><br>
+		<label for="birth">Choose your birth date:</label><br>
+		{{ form.day }} {{ form.month }} {{ form.year }}
+		<input type="submit" name="submit" value="Register!">
+	</form>
+</div>
+{% endblock %}

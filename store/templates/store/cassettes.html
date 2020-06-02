@@ -1,0 +1,42 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Cassettes{% endblock %}
+{% block header%}Cassettes <font id="page2">choice</font>{% endblock %}
+
+{% block custom_style %}
+.content {
+	height: 100%;
+}
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="pages">
+	{% for page in pages %}
+		<div id="pager"><a href="{% url 'cassettes_redirect' %}{{ page }}">{{ page }}</a></div>
+	{% endfor %}
+</div>
+<div class="cassettes-container">
+	<div class="cassettes-container-inner">
+		{% if cassettes %}
+			{% for cassette in cassettes %}
+				<div class="cassette-square-container">
+					<img id="avatar" src="{% static '/cassettes/' %}{{ cassette.cover }}"><br>
+					<div id="title">{{ cassette.title }}</div><br>
+					<div id="description">
+						<div class="price">{{ cassette.price }}$</div>
+						{{ cassette.description }}
+					</div>
+				</div>
+			{% endfor %}
+		{% else %}
+			<p style="color: black; font-size: 1.2em; margin:10px;">No cassettes here, sorry..</p>
+		{% endif %}
+	</div>
+</div>
+{% if next %}
+	<div class="load">
+		<a href="{% url 'cassettes_redirect' %}{{ next }}/"><div data-icon="ei-eye" data-size="l" id='load'></div></a>
+	</div>
+{% endif %}
+{% endblock %}
