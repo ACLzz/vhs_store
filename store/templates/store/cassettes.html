@@ -21,7 +21,7 @@
 		{% if cassettes %}
 			{% for cassette in cassettes %}
 				<div class="cassette-square-container">
-					<img id="avatar" src="{% static '/cassettes/' %}{{ cassette.cover }}"><br>
+					<img id="avatar" src="{{ cassette.cover }}"><br>
 					<div id="title">{{ cassette.title }}</div><br>
 					<div id="description">
 						<div class="price">{{ cassette.price }}$</div>

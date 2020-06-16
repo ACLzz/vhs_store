@@ -1,0 +1,37 @@
+# #### Configure your google drive #### #
+export project_id=quickstart-1590946014682
+export private_key_id=0fc780da2887e1b70823b1533199232474709042
+export private_key='-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCt1K3XMTUqpXtP
+6nwB6EqmslD8tXg2hGxieV74oKF46BsgLrMJTPpXSFKwA0328JPqOeHCrAJ5PJXi
+BCDUTmrIE7APSQMu42J+6KC6Tb3SQM98KdClb/KbhTqFsg4uTZ07srPxpqdfcgRt
+IWhjDIK+PN2ILVKJcfHKEoT4RDsu3fFEbDl+l2t886z+uGNYOAuplzRWjJirzCpD
+Bd7yhZVHEa0dkCVOJng+hxpD+mGp6/4nyxbSijFV09rAUW96GTS/RHiJsnfLs3Gb
+eb+gI63J48oCqK4mI/TrNzU3q2JB7TAdlRiwGjf7E0qnPEOY/IVpLWHHRfgrmx3J
+GZNYSffZAgMBAAECggEACQ2YXNU6EiBahY/OPovaW3J8/PRMhaEBmLf+e2S46XhD
+yroekT+aPXJ4T/oUFOYe+1C2vRyX57gr4YCv3wQTKUa74XKUK7HO9Dy++4Tx+7cW
+tz427hl1oVDfz+Jf57HGHGZTBc+qoYdpde+KpWHw6zcgndInyB265yMYxr9ISnP8
+SV632VERu+MZh5FGy55KO8A7plUCIGbGWZu7VaCUnsQy67vDyzVFrRQ4c2U1gzpY
+ctbhd4rYN6ZK09YN71SylLbZOZ2qOrc/lE9xKK9Nm3TrJgQ9xIuYhppuW/8m7YwX
+DFADj8G0oVZbdeqFPNq7uiks+0+h6qDAhPI7INHiKQKBgQDga5PCecJkkWxgATT2
+sERJoLv3+NlTT/WkrQxROPrPwyxCUPdPn0FDSuQ8MV8X/QzSlJV7mIERRhc6xPUR
+bjelHxdLOXctGhn8G5qDZWO8CpwNJZCzBrkvQhKz3v35k7CZITR/SBoMUPjlZL0r
+AKyF3icBAu7ZkwVZKdCe3x9uhQKBgQDGSrAyUBq9OD6nSDtH/LZg6g6yHew9Q96E
+Dpl9nz9GOHGMJ+mckebHMewIBBs9Crl3twLuT8A29ojsk3O8VamKODOhwl7UgmlM
+B9O5eeF2KL717w2FiHHnlb6wyqg23PzUW9CaBgNqrURGdnaCVaLr0AK0YnCA8Z0+
+sDRcYxbWRQKBgHdXXd0maMSYPNyU57hjpfzNeAf3EoLmW4e16n3q4h3H+WpOqiVy
+V/9T/SkxTBNyovX8w71VLRWlg0biZDxfs0Gg1f9P0NtwLO9PMoy7Rx1BOxkWp+s8
+IRBLf6ydYcvtyRS1frhM/GUeTi2Ws64Bjr0llPJJwAB92XM/9Ev39TwNAoGAc/Rx
+HLrjKAuf98qxf+Mz83Brr5T39Mufb7Hp6CAbrECNhdxBLCHVxl5XHEjqdMO0uWD4
+Acv5Jyr73vxLDbM6NW2wI8O6GKM6WA+rrCatxZ8GLGLikVe85CQZIuEfhRWtc7FN
+RwSFMvinmFzl6EmTwDofmsSF7aFcxq/brrrzO9ECgYEAnEs5jGs/j8KTCubbn/jw
+okyNTdj5H7SFJIoYuDylv3oRloLTB64BjQLGlTgf+BTwPg2c6kz9TonT98ahKq6n
+ommijnbadNe7FJ18xTNRLoUfO/KfjXRsuO7cFupK3+tGNO54NdiEy8TIoDwLHOfW
+7lhRoG+sHIWQ/8lpWFqDsJo=
+-----END PRIVATE KEY-----'
+export client_email=vhs-storage@quickstart-1590946014682.iam.gserviceaccount.com
+export client_id=117356161285384750884
+export client_x509_cert_url=https://www.googleapis.com/robot/v1/metadata/x509/vhs-storage%40quickstart-1590946014682.iam.gserviceaccount.com
+
+# ### Run blender ### #
+blender cassette.blend -P cassette_constructor.py --python-use-system-env --factory-startup

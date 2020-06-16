@@ -6,22 +6,13 @@ class Genre(models.Model):
     name = models.CharField(max_length=50)
 
 
-class Actor(models.Model):
-
-    first_name = models.CharField(max_length=90)
-    second_name = models.CharField(max_length=90)
-    birth_date = models.DateTimeField(null=True)
-    birth_place = models.CharField(max_length=200, null=True)
-    photo = models.CharField(max_length=115, null=True)
-
-
 class Film(models.Model):
 
     image = models.CharField(max_length=150)
     title = models.CharField(max_length=150)
     genres = models.ManyToManyField(Genre)
-    actors = models.ManyToManyField(Actor)
-    description = models.TextField(max_length=3000)
+    actors = models.CharField(max_length=256, null=True)
+    description = models.TextField(max_length=1024)
     rate = models.CharField(max_length=5)
 
 
