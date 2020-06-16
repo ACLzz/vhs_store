@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import FormView
 from django.views.generic import DetailView
-from django.http import HttpResponse
+from django.db.utils import ProgrammingError
 
 from store.models import User, Cassette
 from store.forms import RegistrationForm, LoginForm
@@ -22,7 +22,7 @@ def session_check(view, *args, **kwargs):
     def is_new(request, *args, **kwargs):
         try:
             request.session['uid']
-        except KeyError:
+        except KeyError or ProgrammingError:
             request.session['uid'] = 0
             request.session['nickname'] = ''
             request.session['avatar'] = ''
