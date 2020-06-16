@@ -12,7 +12,7 @@ path.append('.')
 
 import django_setup
 from drive import Drive
-from store.models import Film, Cassette
+from store.models import Film
 
 import bpy
 

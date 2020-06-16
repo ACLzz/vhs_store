@@ -4,9 +4,11 @@
 {% block header%}Cassettes <font id="page2">choice</font>{% endblock %}
 
 {% block custom_style %}
-.content {
-	height: 100%;
-}
+{% if not cassettes %}
+	.content {
+		height: 100%;
+	}
+{% endif %}
 {% endblock %}
 
 {% block content %}
