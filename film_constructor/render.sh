@@ -1,8 +1,7 @@
 # #### Configure your google drive #### #
 export project_id=quickstart-1590946014682
 export private_key_id=0fc780da2887e1b70823b1533199232474709042
-export private_key='-----BEGIN PRIVATE KEY-----
-MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCt1K3XMTUqpXtP
+export private_key='MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCt1K3XMTUqpXtP
 6nwB6EqmslD8tXg2hGxieV74oKF46BsgLrMJTPpXSFKwA0328JPqOeHCrAJ5PJXi
 BCDUTmrIE7APSQMu42J+6KC6Tb3SQM98KdClb/KbhTqFsg4uTZ07srPxpqdfcgRt
 IWhjDIK+PN2ILVKJcfHKEoT4RDsu3fFEbDl+l2t886z+uGNYOAuplzRWjJirzCpD
@@ -27,8 +26,7 @@ Acv5Jyr73vxLDbM6NW2wI8O6GKM6WA+rrCatxZ8GLGLikVe85CQZIuEfhRWtc7FN
 RwSFMvinmFzl6EmTwDofmsSF7aFcxq/brrrzO9ECgYEAnEs5jGs/j8KTCubbn/jw
 okyNTdj5H7SFJIoYuDylv3oRloLTB64BjQLGlTgf+BTwPg2c6kz9TonT98ahKq6n
 ommijnbadNe7FJ18xTNRLoUfO/KfjXRsuO7cFupK3+tGNO54NdiEy8TIoDwLHOfW
-7lhRoG+sHIWQ/8lpWFqDsJo=
------END PRIVATE KEY-----'
+7lhRoG+sHIWQ/8lpWFqDsJo='
 export client_email=vhs-storage@quickstart-1590946014682.iam.gserviceaccount.com
 export client_id=117356161285384750884
 export client_x509_cert_url=https://www.googleapis.com/robot/v1/metadata/x509/vhs-storage%40quickstart-1590946014682.iam.gserviceaccount.com

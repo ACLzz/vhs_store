@@ -13,7 +13,8 @@ class Drive:
         # Getting environment variables
         self.project_id = environ.get('project_id')
         self.private_key_id = environ.get('private_key_id')
-        self.private_key = environ.get('private_key')
+        self.env_private_key = environ.get('private_key')
+        self.private_key = f"-----BEGIN PRIVATE KEY-----\n{self.env_private_key}\n-----END PRIVATE KEY-----"
         self.client_email = environ.get('client_email')
         self.client_id = environ.get('client_id')
         self.client_x509_cert_url = environ.get('client_x509_cert_url')

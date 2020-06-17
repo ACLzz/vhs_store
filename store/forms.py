@@ -22,10 +22,15 @@ class RegistrationForm(forms.Form):
         data = self.cleaned_data
         data['g-recaptcha-response'] = self.data['g-recaptcha-response']
 
-        if self.files['avatar'].size > 8000000:
-            self.error = "Avatar must be smaller than 8 megabytes."
+        try:
+            if self.files['avatar'].size > 8000000:
+                self.error = "Avatar must be smaller than 8 megabytes."
+        except KeyError:
+                self.files['avatar'] = 'default'
 
-        elif User.objects.filter(nickname=data['nickname']):
+        data['avatar'] = self.files['avatar']
+
+        if User.objects.filter(nickname=data['nickname']):
             self.error = "Nickname is already exist."
 
         for i in list(data['nickname']):

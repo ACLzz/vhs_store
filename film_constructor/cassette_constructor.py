@@ -93,7 +93,7 @@ if __name__ == "__main__":
     drv = drive()
 
     to_render_films = Film.objects.filter(cassette__film_id=None)
-    count = 0
+    count = 15
     i = 0
 
     for film in to_render_films:
@@ -113,8 +113,10 @@ if __name__ == "__main__":
 
         remove(rendername)
         remove(filename)
-        if 0 < count < i:
+        if 0 < i < count:
             continue
         break
+
+    print("All done")
 
     exit(0)

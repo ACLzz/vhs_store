@@ -7,6 +7,8 @@ from store.models import User, Cassette
 from store.forms import RegistrationForm, LoginForm
 
 from datetime import datetime
+from film_constructor.drive import Drive
+from os import remove
 
 
 def login_required(view, *args, **kwargs):
@@ -39,24 +41,38 @@ def index(request):
 
 
 class RegisterView(FormView):
+    def __init__(self):
+        drv = Drive
+        drv.default_folder = 'vhs_store'
+        self.drv = drv()
+
     form_class = RegistrationForm
     template_name = 'store/registration.html'
 
     def form_valid(self, form):
         data = form.cleaned_data
 
-        data['path'] = 'my/path'
         birth = datetime(day=int(data['day']),
                          month=int(data['month']),
                          year=int(data['year']))
-        # TODO avatar
+        if data['avatar'] == 'default':
+            data['avatar_url'] = 'https://drive.google.com/uc?id=1Sq-iC4JD1Be3J9HZ2d13YdswF5EOMbEl&export=download'
+        else:
+            filename = f"{data['nickname']}_avatar.png"
+            with open(filename, 'wb') as f:
+                for chunk in data['avatar'].chunks():
+                    f.write(chunk)
+
+            data['avatar_url'] = self.drv.add_file(filename).get("webContentLink")
+
+            remove(filename)
 
         user = User(
             nickname=data['nickname'],
             first_name=data['first_name'],
             birth_date=birth,
             password=data['password'],
-            avatar=data['path']
+            avatar=data['avatar_url']
         )
         user.save()
         return redirect('index')
