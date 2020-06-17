@@ -25,7 +25,7 @@ SECRET_KEY = '&m7+tqcuw5w#b9wo_yi026pxxs)ngqpq&8c*boi$%-x6s92moj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG'))
 
-ALLOWED_HOSTS = ['127.0.0.1', 'claes.lan', 'vhs-store.herokuapp.com', '0.0.0.0', '8d64edcdd7d1.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1', 'claes.lan', 'vhs-store.herokuapp.com', '0.0.0.0']
 
 
 # Application definition
