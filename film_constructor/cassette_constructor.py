@@ -9,13 +9,13 @@ from sys import path
 from string import whitespace, punctuation
 
 path.append('.')
+path.append('..')
 
 import django_setup
 from drive import Drive
 from store.models import Film
 
 import bpy
-
 
 class CassetteRender:
     palletes = {
@@ -93,8 +93,11 @@ if __name__ == "__main__":
     drv = drive()
 
     to_render_films = Film.objects.filter(cassette__film_id=None)
+    count = 0
+    i = 0
 
     for film in to_render_films:
+        i += 1
         cover = get(film.image)
         title = handle_title(film.title)
         filename = f'{title}.png'
@@ -105,10 +108,13 @@ if __name__ == "__main__":
 
         cr.render(rendername, filename)
         link = drv.add_file(filename=rendername, title=title).get('webContentLink')
-        cassette = film.cassette_set.create(cover=link, price=15)
+        cassette = film.cassette_set.create(cover=link, price=randint(15, 100))
         cassette.save()
 
         remove(rendername)
         remove(filename)
+        if 0 < count < i:
+            continue
+        break
 
     exit(0)
