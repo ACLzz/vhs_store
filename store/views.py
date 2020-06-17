@@ -44,12 +44,13 @@ class RegisterView(FormView):
 
     def form_valid(self, form):
         data = form.cleaned_data
-        print(data['password'])
+
         data['path'] = 'my/path'
         birth = datetime(day=int(data['day']),
                          month=int(data['month']),
                          year=int(data['year']))
         # TODO avatar
+
         user = User(
             nickname=data['nickname'],
             first_name=data['first_name'],
@@ -77,7 +78,7 @@ class LoginView(FormView):
         return redirect('index')
 
     def form_invalid(self, form):
-        self.form_class.error = "Invalid username or password."
+        self.form_class.error = form.error
         return self.get(self.request)
 
 

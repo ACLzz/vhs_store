@@ -2,6 +2,9 @@
 
 {% block title %}Register{% endblock %}
 {% block header%}Reg<font id="page2">ister</font>{% endblock %}
+{% block scripts %}
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
 
 {% block custom_style %}
 .content {
@@ -22,7 +25,9 @@
 		{{ form.password.label|linebreaks }} {{ form.password }}<br><br>
 		<label for="birth">Choose your birth date:</label><br>
 		{{ form.day }} {{ form.month }} {{ form.year }}
+		<div class="g-recaptcha" data-sitekey=6LcD-KUZAAAAAK97IphigYZ6p2g0jBpbW0oqG1DR></div>
 		<input type="submit" name="submit" value="Register!">
 	</form>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 </div>
 {% endblock %}

@@ -2,6 +2,9 @@
 
 {% block title %}Login{% endblock %}
 {% block header%}Log<font id="page2">in</font>{% endblock %}
+{% block scripts %}
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
 
 {% block custom_style %}
 .content {
@@ -22,6 +25,7 @@
 		{{ form.nickname.label|linebreaks }} {{ form.nickname }}<br><br>
 		{{ form.password.label|linebreaks }} {{ form.password }}<br><br>
 
+		<div class="g-recaptcha" data-sitekey=6LcD-KUZAAAAAK97IphigYZ6p2g0jBpbW0oqG1DR></div>
 		<input type="submit" name="submit" value="Login">
 	</form>
 </div>
