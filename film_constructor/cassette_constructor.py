@@ -4,9 +4,12 @@
   """
 from random import randint
 from requests import get
-from os import remove
+from os import remove, environ
 from sys import path
+from signal import signal, SIGINT
 from string import whitespace, punctuation
+
+COUNT = int(environ.get('COUNT'))               # count of cassettes
 
 path.append('.')
 path.append('..')
@@ -16,6 +19,7 @@ from drive import Drive
 from store.models import Film
 
 import bpy
+
 
 class CassetteRender:
     palletes = {
@@ -86,14 +90,19 @@ def handle_title(title):
     return new_title
 
 
+def cancel(signum=None, frame=None):
+    print("\nStopping blender\n")
+    exit(0)
+
+
 if __name__ == "__main__":
+    signal(SIGINT, cancel)
     cr = CassetteRender()
     drive = Drive
     drive.default_folder = 'vhs_store'
     drv = drive()
 
     to_render_films = Film.objects.filter(cassette__film_id=None)
-    count = 15
     i = 0
 
     for film in to_render_films:
@@ -113,7 +122,7 @@ if __name__ == "__main__":
 
         remove(rendername)
         remove(filename)
-        if 0 < i < count:
+        if 0 < i < COUNT or COUNT == 0:
             continue
         break
 
